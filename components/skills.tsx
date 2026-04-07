@@ -35,49 +35,53 @@ export function Skills() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Title and Description animation
-      gsap.from(".skills-header > *", {
-        scrollTrigger: {
-          trigger: ".skills-header",
-          start: "top 85%",
-        },
-        y: 30,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "power3.out",
-      });
+      gsap.fromTo(".skills-header > *",
+        { y: 30, opacity: 0 },
+        {
+          scrollTrigger: {
+            trigger: ".skills-header",
+            start: "top 85%",
+          },
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.2,
+          ease: "power3.out",
+        }
+      );
 
-      // Skill cards animation
-      gsap.from(".skill-card", {
-        scrollTrigger: {
-          trigger: ".skills-grid",
-          start: "top 80%",
-        },
-        scale: 0.9,
-        opacity: 0,
-        y: 20,
-        duration: 0.8,
-        stagger: 0.05,
-        ease: "back.out(1.7)",
-      });
+      gsap.fromTo(".skill-card",
+        { scale: 0.9, opacity: 0, y: 20 },
+        {
+          scrollTrigger: {
+            trigger: ".skills-grid",
+            start: "top 80%",
+          },
+          scale: 1,
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.05,
+          ease: "back.out(1.7)",
+        }
+      );
     }, sectionRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <section 
-      id="skills" 
-      ref={sectionRef} 
+    <section
+      id="skills"
+      ref={sectionRef}
       className="py-24 md:py-32 relative overflow-hidden bg-background"
     >
       {/* Decorative background glow */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -z-10"></div>
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -z-10"></div>
-      
+
       <div className="container px-4 md:px-6 mx-auto">
-        
+
         <div className="skills-header text-center mb-16 space-y-4">
           <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.2em]">
             <GraduationCap className="w-3.5 h-3.5" />
@@ -110,7 +114,7 @@ export function Skills() {
                       <span className="text-sm font-black tracking-tighter group-hover:text-primary transition-colors">{skill.name}</span>
                       <div className="flex items-center justify-center gap-1.5 opacity-50 group-hover:opacity-100 transition-opacity">
                         <div className="h-1 w-8 bg-muted rounded-full overflow-hidden">
-                          <div 
+                          <div
                             className="h-full bg-primary"
                             style={{ width: `${skill.level}%` }}
                           ></div>

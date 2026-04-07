@@ -18,8 +18,8 @@ const projects = [
     description: "GreenVaya is a mission-driven platform designed to connect environmental enthusiasts. It allows users to submit eco-friendly ideas, participate in discussions, and track community impact. The platform features a robust voting system and real-time interactions.",
     challenges: "Handling real-time data synchronization for social features and ensuring a high-performance image optimization strategy for community uploads.",
     results: "Achieved 95+ PageSpeed scores and successfully hosted 50+ community-driven green initiatives.",
-    image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=2013&auto=format&fit=crop",
-    tags: ["Next.js", "PostgreSQL", "Tailwind"],
+    image: "https://i.ibb.co.com/MxWD7CLf/Screenshot-6.png",
+    tags: ["Next.js", "PostgreSQL", "Shadcn UI"],
     github: "https://github.com/iamsondev/greenvaya_client",
     demo: "https://greenvayaclient.vercel.app",
     icon: <Globe className="w-5 h-5" />,
@@ -30,22 +30,22 @@ const projects = [
     description: "MediStore simplifies the healthcare experience by providing a clean interface for medicine discovery. It includes advanced filtering, a secure cart system, and real-time delivery estimation based on geographic data.",
     challenges: "Building a complex filtering system that maintains performance across thousands of medical SKUs and ensuring secure checkout flows.",
     results: "Reduced average medicine search time by 40% and improved ordering efficiency for rural users.",
-    image: "https://images.unsplash.com/photo-1587854680352-936b22b91030?q=80&w=2069&auto=format&fit=crop",
-    tags: ["React", "Express.js", "MongoDB"],
+    image: "https://i.ibb.co.com/mKgjp41/Screenshot-4.png",
+    tags: ["Next.js", "Express.js", "PostgreSQL"],
     github: "https://github.com/iamsondev/mdeistore-client",
     demo: "https://medistore-client-bice.vercel.app",
     icon: <Smartphone className="w-5 h-5" />,
   },
   {
-    title: "Eco Impact Dashboard",
+    title: "Blog Site",
     shortDesc: "Advanced visualization of environmental metrics and eco-initiatives.",
     description: "A professional data visualization tool for tracking sustainability goals. It transforms complex environmental datasets into interactive charts and actionable insights for organizations and individuals.",
     challenges: "Visualizing high-velocity data in real-time while maintaining mobile responsiveness and accessible UI/UX patterns.",
     results: "Currently used by 3 community groups to track zero-waste progress and energy savings.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
+    image: "https://i.ibb.co.com/RrYWdn4/pexels-pixabay-265667.jpg",
     tags: ["Framer Motion", "Recharts", "Lucide"],
-    github: "https://github.com/iamsondev",
-    demo: "https://greenvayaclient.vercel.app/ideas",
+    github: "https://github.com/iamsondev/blog-site-client",
+    demo: "https://github.com/iamsondev/blog-site-client",
     icon: <Layout className="w-5 h-5" />,
   },
 ];
@@ -76,13 +76,13 @@ export function Project() {
   }, []);
 
   return (
-    <section 
-      id="project" 
-      ref={sectionRef} 
+    <section
+      id="project"
+      ref={sectionRef}
       className="py-24 md:py-32 bg-muted/20 relative overflow-hidden"
     >
       <div className="container px-4 md:px-6 mx-auto">
-        
+
         <div className="proj-header text-center mb-16 space-y-4">
           <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.2em]">
             <Layout className="w-3.5 h-3.5" />
@@ -98,8 +98,8 @@ export function Project() {
 
         <div className="projects-grid grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {projects.map((project, idx) => (
-            <motion.div 
-              key={idx} 
+            <motion.div
+              key={idx}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -131,8 +131,8 @@ export function Project() {
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag, tagIdx) => (
-                    <span 
-                      key={tagIdx} 
+                    <span
+                      key={tagIdx}
                       className="text-[10px] font-black uppercase tracking-widest px-3 py-1.5 bg-muted rounded-full border border-border/50 text-muted-foreground group-hover:text-primary transition-colors"
                     >
                       {tag}
@@ -145,8 +145,8 @@ export function Project() {
         </div>
 
         <div className="mt-20 text-center">
-          <Link 
-            href="https://github.com/iamsondev" 
+          <Link
+            href="https://github.com/iamsondev"
             target="_blank"
             className="inline-flex items-center space-x-4 px-10 py-5 rounded-2xl bg-primary text-primary-foreground font-black uppercase tracking-[0.2em] text-[10px] hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-1 transition-all"
           >
@@ -191,7 +191,7 @@ export function Project() {
                       </div>
                       <h3 className="text-3xl font-black tracking-tighter">{selectedProject.title}</h3>
                     </div>
-                    <button 
+                    <button
                       onClick={() => setSelectedProject(null)}
                       className="p-2 hover:bg-muted rounded-full transition-colors"
                     >
@@ -219,15 +219,15 @@ export function Project() {
                   </div>
 
                   <div className="flex flex-col sm:flex-row gap-4 pt-8">
-                    <Link 
-                      href={selectedProject.demo} 
+                    <Link
+                      href={selectedProject.demo}
                       target="_blank"
                       className="flex-1 px-8 py-5 rounded-2xl bg-primary text-primary-foreground font-black text-[10px] uppercase tracking-[0.2em] text-center hover:shadow-xl transition-all"
                     >
                       Live Demo
                     </Link>
-                    <Link 
-                      href={selectedProject.github} 
+                    <Link
+                      href={selectedProject.github}
                       target="_blank"
                       className="flex-1 px-8 py-5 rounded-2xl border border-border hover:bg-muted font-black text-[10px] uppercase tracking-[0.2em] text-center transition-all flex items-center justify-center gap-2"
                     >

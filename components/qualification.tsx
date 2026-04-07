@@ -11,28 +11,28 @@ gsap.registerPlugin(ScrollTrigger);
 const qualifications = {
   education: [
     {
-      title: "Bachelor of Computer Science",
-      subtitle: "Independent University, Bangladesh",
+      title: "Bachelor of Social Science",
+      subtitle: "National University, Bangladesh",
       date: "2020 - 2024",
-      description: "Focused on Software Engineering, Data Structures, and Algorithms. Graduated with honors.",
+      description: "Focused on Software Engineering, Data Structures, and Algorithms.",
     },
     {
       title: "HSC (Science)",
-      subtitle: "Dhaka College",
+      subtitle: "Pirganj Government College",
       date: "2017 - 2019",
       description: "Completed Higher Secondary Certificate with a focus on Mathematics and Physics.",
     },
   ],
   experience: [
     {
-      title: "Senior Full-Stack Developer",
+      title: " Full-Stack Developer",
       subtitle: "GreenVaya Tech Solutions",
       date: "2024 - Present",
       description: "Leading the development of complex web applications with Next.js and Node.js.",
     },
     {
-      title: "Junior Web Developer",
-      subtitle: "Logic-Soft Limited",
+      title: "Web Developer",
+      subtitle: "Medistore",
       date: "2022 - 2023",
       description: "Assisted in building responsive front-end interfaces and integrating RESTful APIs.",
     },
@@ -76,13 +76,13 @@ export function Qualification() {
   }, [activeTab]);
 
   return (
-    <section 
-      id="qualification" 
-      ref={sectionRef} 
+    <section
+      id="qualification"
+      ref={sectionRef}
       className="py-24 md:py-32 bg-background relative overflow-hidden"
     >
       <div className="container px-4 md:px-6 mx-auto">
-        
+
         <div className="qual-header text-center mb-16 space-y-4">
           <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium">
             <GraduationCap className="w-4 h-4" />
@@ -101,18 +101,16 @@ export function Qualification() {
           <div className="inline-flex p-1.5 bg-muted/60 backdrop-blur-md rounded-2xl border border-border shadow-inner">
             <button
               onClick={() => setActiveTab("education")}
-              className={`px-8 py-3 rounded-xl text-sm font-bold tracking-tight transition-all duration-500 flex items-center gap-2 ${
-                activeTab === "education" ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20 scale-105" : "text-muted-foreground hover:text-primary hover:bg-primary/5"
-              }`}
+              className={`px-8 py-3 rounded-xl text-sm font-bold tracking-tight transition-all duration-500 flex items-center gap-2 ${activeTab === "education" ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20 scale-105" : "text-muted-foreground hover:text-primary hover:bg-primary/5"
+                }`}
             >
               <GraduationCap className="w-4 h-4" />
               Education History
             </button>
             <button
               onClick={() => setActiveTab("experience")}
-              className={`px-8 py-3 rounded-xl text-sm font-bold tracking-tight transition-all duration-500 flex items-center gap-2 ${
-                activeTab === "experience" ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20 scale-105" : "text-muted-foreground hover:text-primary hover:bg-primary/5"
-              }`}
+              className={`px-8 py-3 rounded-xl text-sm font-bold tracking-tight transition-all duration-500 flex items-center gap-2 ${activeTab === "experience" ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20 scale-105" : "text-muted-foreground hover:text-primary hover:bg-primary/5"
+                }`}
             >
               <Briefcase className="w-4 h-4" />
               Professional Experience
@@ -129,10 +127,10 @@ export function Qualification() {
                 <div className="absolute -left-[41px] sm:-left-[57px] top-1 w-6 h-6 bg-primary rounded-full border-4 border-background group-hover:scale-125 transition-transform duration-500 shadow-xl shadow-primary/30 z-10">
                   <div className="absolute inset-0 bg-primary blur-md opacity-40 group-hover:opacity-100 transition-opacity"></div>
                 </div>
-                
+
                 <div className="p-8 md:p-10 rounded-3xl border border-border bg-muted/30 backdrop-blur-md hover:bg-muted/50 hover:border-primary/30 transition-all duration-500 shadow-xl shadow-black/5 relative group/card">
                   <div className="absolute top-0 left-0 w-1 h-full bg-primary/40 rounded-l-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                  
+
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
                     <h3 className="text-xl md:text-2xl font-bold tracking-tight group-hover:text-primary transition-colors">{item.title}</h3>
                     <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-primary px-4 py-1.5 bg-primary/10 rounded-full w-fit border border-primary/20">

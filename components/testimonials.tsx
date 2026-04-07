@@ -34,27 +34,29 @@ export function Testimonials() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(".testimonial-card", {
-        scrollTrigger: {
-          trigger: ".testimonials-grid",
-          start: "top 85%",
-        },
-        y: 40,
-        opacity: 0,
-        scale: 0.95,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: "power3.out",
-      });
+      gsap.fromTo(".testimonial-card",
+        { y: 40, opacity: 0, scale: 0.95 },
+        {
+          scrollTrigger: {
+            trigger: ".testimonials-grid",
+            start: "top 85%",
+          },
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: "power3.out",
+        }
+      );
     }, sectionRef);
 
     return () => ctx.revert();
   }, []);
-
   return (
-    <section 
-      id="testimonials" 
-      ref={sectionRef} 
+    <section
+      id="testimonials"
+      ref={sectionRef}
       className="py-24 md:py-32 relative overflow-hidden bg-background"
     >
       <div className="container px-4 md:px-6 mx-auto">
@@ -70,15 +72,15 @@ export function Testimonials() {
 
         <div className="testimonials-grid grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {testimonials.map((item, idx) => (
-            <motion.div 
-              key={idx} 
+            <motion.div
+              key={idx}
               whileHover={{ y: -10 }}
               className="testimonial-card relative p-10 rounded-[40px] border border-border bg-muted/20 backdrop-blur-md flex flex-col space-y-6 hover:border-primary/40 transition-all duration-500 overflow-hidden group"
             >
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              
+
               <div className="flex gap-1 text-primary">
-                {[1,2,3,4,5].map(star => (
+                {[1, 2, 3, 4, 5].map(star => (
                   <Star key={star} className="w-4 h-4 fill-current" />
                 ))}
               </div>
@@ -86,7 +88,7 @@ export function Testimonials() {
               <div className="relative">
                 <Quote className="w-12 h-12 text-primary/10 absolute -top-4 -left-4" />
                 <p className="text-muted-foreground leading-relaxed italic relative z-10 font-medium">
-                   "{item.content}"
+                  "{item.content}"
                 </p>
               </div>
 

@@ -85,9 +85,9 @@ export function Hero() {
   }, []);
 
   return (
-    <section 
-      id="hero" 
-      ref={containerRef} 
+    <section
+      id="hero"
+      ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden py-16 md:py-24"
@@ -101,11 +101,11 @@ export function Hero() {
               <FaGithub className="w-5 h-5" />
               <span className="sr-only">GitHub</span>
             </Link>
-            <Link href="https://linkedin.com" target="_blank" className="p-3 bg-muted/50 rounded-full hover:bg-primary hover:text-primary-foreground transition-all duration-300">
+            <Link href="https://www.linkedin.com/in/sondip-kumar-8637b9179" target="_blank" className="p-3 bg-muted/50 rounded-full hover:bg-primary hover:text-primary-foreground transition-all duration-300">
               <FaLinkedin className="w-5 h-5" />
               <span className="sr-only">LinkedIn</span>
             </Link>
-            <Link href="https://twitter.com" target="_blank" className="p-3 bg-muted/50 rounded-full hover:bg-primary hover:text-primary-foreground transition-all duration-300">
+            <Link href="https://x.com/SonDIPX" target="_blank" className="p-3 bg-muted/50 rounded-full hover:bg-primary hover:text-primary-foreground transition-all duration-300">
               <X className="w-5 h-5" />
               <span className="sr-only">Twitter</span>
             </Link>
@@ -160,8 +160,8 @@ export function Hero() {
           </div>
 
           {/* Right Side: Photo */}
-          <motion.div 
-            ref={rightColRef} 
+          <motion.div
+            ref={rightColRef}
             style={{ rotateX, rotateY, perspective: 1000 }}
             className="md:col-span-4 flex justify-center md:justify-end items-center"
           >
