@@ -2,12 +2,12 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Download, 
-  Printer, 
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Download,
+  Printer,
   ChevronLeft,
   ExternalLink,
   Calendar,
@@ -21,38 +21,38 @@ import { Button } from "@/components/ui/button";
 
 const resumeData = {
   name: "Sondip Kumar",
-  title: "Full-Stack Developer | MERN Stack Expert",
-  email: "sondip@example.com",
-  phone: "+880 1234-567890",
+  title: "Full-Stack Developer",
+  email: "sondipkumarsk@gmail.com",
+  phone: "+880 1774032681",
   location: "Dhaka, Bangladesh",
-  github: "https://github.com",
-  linkedin: "https://linkedin.com",
+  github: "https://github.com/iamsondev",
+  linkedin: "https://www.linkedin.com/in/sondip-kumar-8637b9179",
   summary: "Results-driven Full-Stack Developer with expertise in building scalable, modern web applications. Specialized in the MERN stack and Next.js, with a strong focus on high-performance architecture, clean code, and intuitive user experiences. Passionate about solving complex problems and delivering pixel-perfect digital solutions.",
   experience: [
     {
-      role: "Senior Full-Stack Developer",
-      company: "GreenVaya Tech Solutions",
-      period: "2024 - Present",
+      role: "Full-Stack Developer",
+      company: "GreenVaya",
+      period: "...",
       description: "Leading the development of complex web applications with Next.js and Node.js. Optimizing system performance and leading a team of developers."
     },
     {
-      role: "Junior Web Developer",
-      company: "Logic-Soft Limited",
-      period: "2022 - 2023",
+      role: "Full Stack Developer",
+      company: "medistore",
+      period: "...",
       description: "Assisted in building responsive front-end interfaces and integrating RESTful APIs using React and Express."
     }
   ],
   education: [
     {
-      degree: "Bachelor of Computer Science",
-      school: "Independent University, Bangladesh",
+      degree: "Bachelor of Social Science",
+      school: "National University, Bangladesh",
       period: "2020 - 2024",
       highlight: "Focused on Software Engineering, Data Structures, and Algorithms. Graduated with honors."
     },
     {
       degree: "HSC (Science)",
-      school: "Dhaka College",
-      period: "2017 - 2019",
+      school: "Pirganj Govt College",
+      period: "2015",
       highlight: "Completed Higher Secondary Certificate with a focus on Mathematics and Physics."
     }
   ],
@@ -100,7 +100,7 @@ export default function ResumePage() {
 
       {/* Resume Container */}
       <div className="container mx-auto px-4 py-10 md:py-16 flex justify-center">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="w-full max-w-[850px] bg-background print:shadow-none shadow-2xl rounded-3xl overflow-hidden border print:border-none print:m-0"
@@ -114,7 +114,7 @@ export default function ResumePage() {
               <p className="text-xl md:text-2xl text-primary-foreground/90 font-medium mb-8">
                 {resumeData.title}
               </p>
-              
+
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-4 gap-x-8 text-sm md:text-base">
                 <div className="flex items-center gap-3">
                   <Mail className="w-5 h-5 text-primary-foreground/70" />
@@ -138,7 +138,7 @@ export default function ResumePage() {
                 </div>
               </div>
             </div>
-            
+
             {/* Decorative background shape */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-20 -mt-20 blur-3xl animate-pulse"></div>
           </header>
@@ -254,7 +254,7 @@ export default function ResumePage() {
               </section>
             </div>
           </div>
-          
+
           {/* Footer - Only visible in digital, hidden in print */}
           <footer className="p-8 bg-muted/20 border-t text-center text-sm text-muted-foreground print:hidden">
             Generated via Portfolio Resume Hub • Sondip Kumar

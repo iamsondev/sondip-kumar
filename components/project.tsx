@@ -18,6 +18,7 @@ const projects = [
     description: "GreenVaya is a mission-driven platform designed to connect environmental enthusiasts. It allows users to submit eco-friendly ideas, participate in discussions, and track community impact. The platform features a robust voting system and real-time interactions.",
     challenges: "Handling real-time data synchronization for social features and ensuring a high-performance image optimization strategy for community uploads.",
     results: "Achieved 95+ PageSpeed scores and successfully hosted 50+ community-driven green initiatives.",
+    futurePlans: "Integrating AI-powered eco-recommendations, expanding to a mobile app with offline support, and adding a gamification system to reward eco-friendly actions.",
     image: "https://i.ibb.co.com/MxWD7CLf/Screenshot-6.png",
     tags: ["Next.js", "PostgreSQL", "Shadcn UI"],
     github: "https://github.com/iamsondev/greenvaya_client",
@@ -30,6 +31,7 @@ const projects = [
     description: "MediStore simplifies the healthcare experience by providing a clean interface for medicine discovery. It includes advanced filtering, a secure cart system, and real-time delivery estimation based on geographic data.",
     challenges: "Building a complex filtering system that maintains performance across thousands of medical SKUs and ensuring secure checkout flows.",
     results: "Reduced average medicine search time by 40% and improved ordering efficiency for rural users.",
+    futurePlans: "Adding AI-based medicine suggestions, prescription upload feature, real-time inventory tracking, and integration with local pharmacy APIs.",
     image: "https://i.ibb.co.com/mKgjp41/Screenshot-4.png",
     tags: ["Next.js", "Express.js", "PostgreSQL"],
     github: "https://github.com/iamsondev/mdeistore-client",
@@ -38,10 +40,11 @@ const projects = [
   },
   {
     title: "Blog Site",
-    shortDesc: "Advanced visualization of environmental metrics and eco-initiatives.",
-    description: "A professional data visualization tool for tracking sustainability goals. It transforms complex environmental datasets into interactive charts and actionable insights for organizations and individuals.",
+    shortDesc: "A modern blogging platform with rich content creation and discovery.",
+    description: "A professional blogging platform built for writers and readers. Features a rich text editor, category-based filtering, comment system, and a clean reading experience optimized for all devices.",
     challenges: "Visualizing high-velocity data in real-time while maintaining mobile responsiveness and accessible UI/UX patterns.",
     results: "Currently used by 3 community groups to track zero-waste progress and energy savings.",
+    futurePlans: "Adding AI-generated content suggestions, multi-author support, a monetization system, and newsletter integration.",
     image: "https://i.ibb.co.com/RrYWdn4/pexels-pixabay-265667.jpg",
     tags: ["Framer Motion", "Recharts", "Lucide"],
     github: "https://github.com/iamsondev/blog-site-client",
@@ -58,18 +61,21 @@ export function Project() {
     ScrollTrigger.refresh();
 
     const ctx = gsap.context(() => {
-      gsap.from(".proj-header > *", {
-        scrollTrigger: {
-          trigger: ".proj-header",
-          start: "top 90%",
-          toggleActions: "play none none none",
-        },
-        y: 20,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: "power2.out",
-      });
+      gsap.fromTo(".proj-header > *",
+        { y: 20, opacity: 0 },
+        {
+          scrollTrigger: {
+            trigger: ".proj-header",
+            start: "top 90%",
+            toggleActions: "play none none none",
+          },
+          y: 0,
+          opacity: 1,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: "power2.out",
+        }
+      );
     }, sectionRef);
 
     return () => ctx.revert();
@@ -104,8 +110,7 @@ export function Project() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
-              onClick={() => setSelectedProject(project)}
-              className="project-card group relative rounded-[40px] border border-border bg-background overflow-hidden hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 cursor-pointer"
+              className="project-card group relative rounded-[40px] border border-border bg-background overflow-hidden hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500"
             >
               {/* Image Preview */}
               <div className="relative h-72 w-full bg-muted overflow-hidden">
@@ -113,7 +118,7 @@ export function Project() {
                   src={project.image}
                   alt={project.title}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700 blur-0"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </div>
@@ -126,10 +131,10 @@ export function Project() {
                   </div>
                   <h3 className="text-2xl font-black tracking-tighter">{project.title}</h3>
                 </div>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-8 line-clamp-2">
+                <p className="text-muted-foreground text-sm leading-relaxed mb-6 line-clamp-2">
                   {project.shortDesc}
                 </p>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 mb-8">
                   {project.tags.map((tag, tagIdx) => (
                     <span
                       key={tagIdx}
@@ -139,6 +144,15 @@ export function Project() {
                     </span>
                   ))}
                 </div>
+
+                {/* View Details Button */}
+                <button
+                  onClick={() => setSelectedProject(project)}
+                  className="w-full py-3 rounded-2xl border border-primary/30 text-primary text-[10px] font-black uppercase tracking-[0.2em] hover:bg-primary hover:text-primary-foreground transition-all duration-300 flex items-center justify-center gap-2"
+                >
+                  <ExternalLink className="w-3.5 h-3.5" />
+                  View Details
+                </button>
               </div>
             </motion.div>
           ))}
@@ -171,7 +185,7 @@ export function Project() {
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-4xl bg-background border border-border rounded-[48px] overflow-hidden shadow-3xl shadow-black/20"
+              className="relative w-full max-w-4xl bg-background border border-border rounded-[48px] overflow-hidden shadow-2xl shadow-black/20"
             >
               <div className="grid md:grid-cols-2">
                 <div className="relative h-64 md:h-auto bg-muted">
@@ -183,7 +197,7 @@ export function Project() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-transparent hidden md:block"></div>
                 </div>
-                <div className="p-10 md:p-16 space-y-8 max-h-[80vh] overflow-y-auto custom-scrollbar">
+                <div className="p-10 md:p-16 space-y-8 max-h-[80vh] overflow-y-auto">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <div className="p-2 bg-primary/10 rounded-xl text-primary">
@@ -201,12 +215,24 @@ export function Project() {
                     </button>
                   </div>
 
+                  {/* Tech Stack */}
+                  <div className="space-y-2">
+                    <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">Tech Stack</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {selectedProject.tags.map((tag, i) => (
+                        <span key={i} className="text-[10px] font-black uppercase tracking-widest px-3 py-1.5 bg-primary/10 rounded-full text-primary border border-primary/20">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
                   <div className="space-y-6">
                     <div className="space-y-2">
                       <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">Overview</h4>
                       <p className="text-muted-foreground leading-relaxed font-medium">{selectedProject.description}</p>
                     </div>
-                    <div className="grid sm:grid-cols-2 gap-8 pt-4">
+                    <div className="grid sm:grid-cols-2 gap-6">
                       <div className="space-y-2">
                         <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">The Challenge</h4>
                         <p className="text-sm text-muted-foreground font-medium">{selectedProject.challenges}</p>
@@ -216,14 +242,19 @@ export function Project() {
                         <p className="text-sm text-muted-foreground font-medium">{selectedProject.results}</p>
                       </div>
                     </div>
+                    <div className="space-y-2">
+                      <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">Future Plans</h4>
+                      <p className="text-sm text-muted-foreground font-medium">{selectedProject.futurePlans}</p>
+                    </div>
                   </div>
 
-                  <div className="flex flex-col sm:flex-row gap-4 pt-8">
+                  <div className="flex flex-col sm:flex-row gap-4 pt-4">
                     <Link
                       href={selectedProject.demo}
                       target="_blank"
-                      className="flex-1 px-8 py-5 rounded-2xl bg-primary text-primary-foreground font-black text-[10px] uppercase tracking-[0.2em] text-center hover:shadow-xl transition-all"
+                      className="flex-1 px-8 py-5 rounded-2xl bg-primary text-primary-foreground font-black text-[10px] uppercase tracking-[0.2em] text-center hover:shadow-xl transition-all flex items-center justify-center gap-2"
                     >
+                      <ExternalLink className="w-4 h-4" />
                       Live Demo
                     </Link>
                     <Link

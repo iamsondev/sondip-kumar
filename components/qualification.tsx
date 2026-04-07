@@ -26,7 +26,7 @@ const qualifications = {
   experience: [
     {
       title: " Full-Stack Developer",
-      subtitle: "GreenVaya Tech Solutions",
+      subtitle: "GreenVaya",
       date: "2024 - Present",
       description: "Leading the development of complex web applications with Next.js and Node.js.",
     },

@@ -54,17 +54,17 @@ export function Contact() {
   };
 
   return (
-    <section 
-      id="contact" 
-      ref={sectionRef} 
+    <section
+      id="contact"
+      ref={sectionRef}
       className="py-24 md:py-32 bg-background relative overflow-hidden"
     >
       {/* Decorative background blur */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-primary/5 rounded-full blur-[120px] -z-10"></div>
       <div className="absolute bottom-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[100px] -z-10"></div>
-      
+
       <div className="container px-4 md:px-6 mx-auto">
-        
+
         <div className="contact-header text-center mb-16 space-y-4">
           <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.2em]">
             <MessageSquare className="w-3.5 h-3.5" />
@@ -79,15 +79,15 @@ export function Contact() {
         </div>
 
         <div className="contact-grid grid lg:grid-cols-12 gap-12 max-w-7xl mx-auto items-start">
-          
+
           {/* Contact Info */}
           <div className="contact-info lg:col-span-4 space-y-8">
             <h3 className="text-2xl font-black uppercase tracking-[0.1em] mb-8 text-primary">Connectivity</h3>
-            
+
             <div className="space-y-5">
               {[
-                { icon: <Mail className="w-5 h-5" />, title: "Digital Mail", value: "hello@sondip.dev", action: "Send Email" },
-                { icon: <Phone className="w-5 h-5" />, title: "Instant Contact", value: "+880 1712-345678", action: "WhatsApp / Call" },
+                { icon: <Mail className="w-5 h-5" />, title: "Digital Mail", value: "sondipkumarsk@gmail.com", action: "Send Email" },
+                { icon: <Phone className="w-5 h-5" />, title: "Instant Contact", value: "+880 1774032681", action: "WhatsApp / Call" },
                 { icon: <MapPin className="w-5 h-5" />, title: "My Workspace", value: "Dhaka, Bangladesh", action: "Locate Me" },
               ].map((item, idx) => (
                 <div key={idx} className="group relative flex items-start space-x-5 p-8 rounded-[32px] border border-border bg-muted/20 backdrop-blur-md hover:bg-muted/40 transition-all duration-500 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/5 cursor-pointer">
@@ -109,7 +109,7 @@ export function Contact() {
           {/* Contact Form Container */}
           <div className="contact-form lg:col-span-8">
             <div className="p-10 md:p-16 rounded-[48px] border border-border bg-muted/30 backdrop-blur-2xl shadow-3xl shadow-black/10 relative overflow-hidden min-h-[600px] flex flex-col justify-center">
-              
+
               <AnimatePresence mode="wait">
                 {status !== "sent" ? (
                   <motion.div
@@ -120,7 +120,7 @@ export function Contact() {
                     className="relative z-10"
                   >
                     <h3 className="text-3xl font-black tracking-tighter mb-12">Direct <span className="text-primary italic">Inquiry</span></h3>
-                    
+
                     <form onSubmit={handleSubmit} className="space-y-10">
                       <div className="grid sm:grid-cols-2 gap-8">
                         <div className="space-y-3 group">
@@ -139,7 +139,7 @@ export function Contact() {
                             required
                             type="email"
                             id="email"
-                            placeholder="your@email.com"
+                            placeholder="[EMAIL_ADDRESS]"
                             className="w-full px-6 py-5 rounded-2xl bg-background/40 border border-border/50 focus:border-primary/40 focus:bg-background focus:ring-8 focus:ring-primary/5 outline-none transition-all duration-500 font-medium"
                           />
                         </div>
@@ -194,7 +194,7 @@ export function Contact() {
                         Your vision has been received. I'll reach out to you within 24 hours to begin our journey.
                       </p>
                     </div>
-                    <button 
+                    <button
                       onClick={() => setStatus("idle")}
                       className="text-[10px] font-black uppercase tracking-[0.3em] text-primary hover:text-foreground transition-colors"
                     >
